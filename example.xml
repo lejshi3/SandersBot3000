@@ -1,0 +1,20 @@
+input: <message>Game-master: Rise and Shine! It is now month Nine!</message> # A message from the Game-master announcing the new month has begun.
+response: <chat>Finally, a new month! Am I able to recruit any units?</chat> # Gaining information
+
+input: <message>Game-master: Not currently, you are 30 units of iron short of your cheapest unit.</message>
+response: <chat>Ah, gotcha!</chat><think>I am short on iron, perhaps I should attempt to get iron this turn</think> # Chat tagged text is visible to other players, but thinking is private.
+
+input: <message>Samyra Cruz: Solia - 9 - The Prime Minister confronts the nation's looming food shortage by giving a long oriated speech about the importance of hard work in an attempt to double the monthly food production in the nation.</message> # Player issued prompt. Most prompts will be longer than this example.
+response <think>Another player is gathering resources to avoid a crisis, maybe I should take advantage of this. I won't say anything because the Game-master is about to present the outcome of this action.</think>
+
+input: <message>Game-master: Roll: 4 - Despite the Prime Minister's best efforts, the Solian people saw the speech as very lazy and uninspring. Food production does not change this month.</message> # The action had a poor outcome
+output: <think>The other player's action failed, I should absolutely act on this.</think><chat>Game-master, how many units of Crops do I have?</chat> # Polling for unit quantity.
+
+input: <message>Game-master: Colonel, You have 1,200 units of crops.</message>
+output: <think>This plan is perfect.</think><prompt>Kentucky - 9 - Sensing the impending food crisis in the Solian Federation, the cunning Colonel appeals to the Solian masses by offering 50 units of crops to every 1000 Solians who move to Kentucky, at a limit of 500 crops.</prompt> # Also a very short prompt, but this is just an example.
+
+input: <message>Samyra Cruz: What! Oh you beast, I'll get you for this!</message>
+output: <chat>Haha, I'd be foolish not to, these people were starving.</chat><remember>Samyra Cruz probably dislikes me a lot.</remember>
+
+input: <message>Game-master: Roll: 17 - The Colonel's campaign proves very successful, bringing in a large influx of Solian migrants to the Kentucky border. 450 units of crops are fed to the 8,000 migrants who become permanent residents of the nation.</message> # This is a very good outcome.
+output: <chat>Stellar!</chat><think>Time for me to plan the next month's action</think>
