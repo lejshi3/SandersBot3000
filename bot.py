@@ -68,7 +68,8 @@ class Bot(discord.Client):
       messager.set_system_message(f"""
           {game_data.master_prompt}
           {game_data.current_nations}
-          {lore}
+          Memories: {memories} 
+          Lore: {lore} 
           It is currently Year {game_data.year}, Month {game_data.month}
         """)
 

@@ -11,9 +11,12 @@ anthropic_client = services["anthropic_client"]
 pb = services["pocketbase"]
 auth_data = services["pocketbase_auth_data"]
 
-# record_id = 'rmnr73yi8qw6w5p' # Sanders
-record_id = '2u7dofvuxcp3s2n' # Fulcros
-record2_id = 'lddbtbyby25zknp' 
+sanders = 'rmnr73yi8qw6w5p' # Sanders
+fulcros = '2u7dofvuxcp3s2n' # Fulcros
+
+record_id = sanders
+
+game = 'lddbtbyby25zknp' 
 
 npc_data = pb.collection('npcs').get_one(record_id)
 
@@ -21,12 +24,20 @@ lore_json = npc_data.lore
 description = lore_json["description"]
 characteristics = lore_json["characteristics"]
 
+memory_json = npc_data.memory
+memory_list = []
+
+for memory in memory_json:
+  memory_list.append(f'<memory> <title> {memory["title"]} </title> <details> {memory["details"]} </details> </memory>')
+
+memories = " ".join(memory_list)
+
 lore = f"<Description> You play as {description['full_name']}, the {description['occupation']} of {description['nationality']}, a fictitious {description['politics']} in a multiplayer nation-building role-playing game. </Description> <Characteristics> As {characteristics['short_name']}, you value {characteristics['values']}. You also {characteristics['Personality']}. </Characteristics>"
 
 
 
 
-game_data = pb.collection('game').get_one(record2_id)
+game_data = pb.collection('game').get_one(game)
 message_bank = pb.collection('npcs').get_one(record_id).conversation
 
 # Blacklisted User IDs
