@@ -14,7 +14,7 @@ auth_data = services["pocketbase_auth_data"]
 sanders = 'rmnr73yi8qw6w5p' # Sanders
 fulcros = '2u7dofvuxcp3s2n' # Fulcros
 
-record_id = sanders
+record_id = fulcros
 
 game = 'lddbtbyby25zknp' 
 
